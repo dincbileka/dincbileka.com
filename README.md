@@ -1,16 +1,67 @@
-# React + Vite
+# Alican Dinçbilek — Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Deploy](https://img.shields.io/badge/deployed-cloudflare-orange)
+![React](https://img.shields.io/badge/react-18-blue)
+![Vite](https://img.shields.io/badge/vite-fast-purple)
 
-Currently, two official plugins are available:
+Personal website of **Alican Dinçbilek**, focused on infrastructure, automation and DevOps.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌐 Live: https://dincbileka.com
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## About
 
-## Expanding the ESLint configuration
+This site is a personal portfolio showcasing projects, technical interests and experiments around:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Infrastructure
+- DevOps
+- Automation
+- Networking
+- Software development
+
+The goal of the site is to present projects, share ideas and maintain a clean developer-focused web presence.
+
+---
+
+## Tech Stack
+
+- React
+- Vite
+- Framer Motion
+- CSS
+- Cloudflare Pages (deployment)
+
+---
+
+## Features
+
+- Responsive design
+- Dark / Light theme
+- Terminal-style UI elements
+- Animated hero section
+- Project showcase
+- Optimized production build
+- SEO optimized
+
+---
+
+## Projects Included
+
+### Keethub
+A social platform that helps users track reading progress and build a digital library.
+
+### Miimbo
+A customizable link-in-bio solution that collects all your social media links in one page.
+
+### Neva Filo
+A B2B platform for vehicle leasing and fleet management.
+
+---
+
+## Development
+
+Clone the repository:
+
+```bash
+git clone https://github.com/dincbileka/dincbileka.com
