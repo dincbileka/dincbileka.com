@@ -1,0 +1,18 @@
+.animated-text {
+    display: inline-block;
+    cursor: default;
+}
+
+.animated-letter {
+    display: inline-block;
+    will-change: transform;
+    transition: color var(--transition-fast);
+}
+
+.animated-letter--space {
+    width: 0.35em;
+}
+
+.animated-text:hover .animated-letter {
+    color: inherit;
+}

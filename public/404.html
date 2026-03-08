@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #EE1C3C;
+      color: #000;
+      font-family: 'Space Mono', monospace;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+    }
+    .code {
+      font-size: clamp(5rem, 15vw, 10rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .message {
+      font-size: 0.9rem;
+      margin: 1.5rem 0 2rem;
+      opacity: 0.75;
+      letter-spacing: 0.05em;
+    }
+    .back {
+      display: inline-block;
+      padding: 0.8rem 1.75rem;
+      border: 2px solid #000;
+      color: #000;
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 150ms ease;
+    }
+    .back:hover {
+      background: #000;
+      color: #EE1C3C;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="code">404</div>
+    <p class="message">Page not found. Nothing to see here.</p>
+    <a href="/" class="back">Back to Home</a>
+  </div>
+</body>
+
+</html>
