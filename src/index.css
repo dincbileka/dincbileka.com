@@ -148,6 +148,12 @@ a:hover {
   padding: 0 var(--space-xl);
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+}
+
 /* Neo-brutalist panel */
 .glass-panel {
   background: var(--bg-secondary);
@@ -190,6 +196,16 @@ a:hover {
 .section-header h2 {
   color: var(--text-primary);
   white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .section-header {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  .section-header h2 {
+    white-space: normal;
+  }
 }
 
 .section-line {
@@ -296,4 +312,10 @@ a:hover {
   content: '//';
   margin-right: var(--space-md);
   opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+  .marquee-track span {
+    font-size: 0.75rem;
+  }
 }

@@ -84,7 +84,7 @@ export const translations = {
 
         // Hero
         hero: {
-            role: 'ALTYAPI & DEVOPS',
+            role: 'INFRASTRUCTURE & DEVOPS',
             description:
                 'Otomasyon, altyapı ve DevOps odaklı araçlar, sistemler ve deneyler inşa ediyorum.',
             viewWork: 'PROJELERİ GÖR',

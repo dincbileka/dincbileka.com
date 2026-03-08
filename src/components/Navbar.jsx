@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Sun, Moon, Mail } from 'lucide-react';
+import { Github, Linkedin, Sun, Moon, Mail, Menu, X } from 'lucide-react';
 import AdLogo from '../assets/logo.png';
 import { useLang } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
@@ -91,6 +91,12 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const { completed, current } = useVerticalTicker();
   const visibleCompleted = completed.slice(-3); // last 3 completed lines
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
 
   return (
     <motion.nav
@@ -99,25 +105,48 @@ const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
-      {/* Panel 1: Logo */}
-      <div className="navbar-panel navbar-panel--logo">
-        <a href="#home" className="navbar-logo" aria-label="Home">
-          <img src={AdLogo} alt="AD Logo" className="logo-svg" />
-        </a>
-      </div>
-
-      {/* Panel 2: Vertical typewriter ticker */}
-      <div className="navbar-panel navbar-panel--typewriter">
-        <div className="ticker-wrapper">
-          {visibleCompleted.map((line, i) => (
-            <div key={`c-${i}`} className="ticker-line ticker-line--done">
-              {line}
+      {/* Left block: Logo + Ticker (logo en solda sabit, kayan yazı yanında) */}
+      <div className="navbar-left">
+        <div className="navbar-panel navbar-panel--logo">
+          <a href="#home" className="navbar-logo" aria-label="Home" onClick={() => setMenuOpen(false)}>
+            <img src={AdLogo} alt="AD Logo" className="logo-svg" />
+          </a>
+        </div>
+        <div className="navbar-panel navbar-panel--typewriter">
+          <div className="ticker-wrapper">
+            {visibleCompleted.map((line, i) => (
+              <div key={`c-${i}`} className="ticker-line ticker-line--done">
+                {line}
+              </div>
+            ))}
+            <div className="ticker-line ticker-line--typing">
+              {current}<span className="ticker-cursor">█</span>
             </div>
-          ))}
-          <div className="ticker-line ticker-line--typing">
-            {current}<span className="ticker-cursor">█</span>
           </div>
         </div>
+      </div>
+
+      {/* Mobile: TR | theme to the left of hamburger */}
+      <div className="navbar-mobile-toggles">
+        <button type="button" className="lang-toggle" onClick={toggleLang} aria-label={lang === 'en' ? 'Türkçeye geç' : 'Switch to English'}>
+          {lang === 'en' ? 'TR' : 'EN'}
+        </button>
+        <span className="navbar-mobile-toggles-sep" aria-hidden="true">|</span>
+        <button type="button" className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+          {theme === 'red' ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
+      </div>
+
+      {/* Mobile: hamburger */}
+      <div className="navbar-panel navbar-panel--mobile-toggle">
+        <button
+          type="button"
+          className="navbar-menu-btn"
+          onClick={() => setMenuOpen(true)}
+          aria-label="Open menu"
+        >
+          <Menu size={24} />
+        </button>
       </div>
 
       {/* Panel 3: Nav links */}
@@ -181,6 +210,52 @@ const Navbar = () => {
         <span className="status-top">{t.nav.statusCoding}</span>
         <span className="status-divider" />
         <span className="status-bottom">{t.nav.statusFreelance}</span>
+      </div>
+
+      {/* Mobile drawer backdrop */}
+      <div
+        className={`navbar-drawer-backdrop ${menuOpen ? 'is-open' : ''}`}
+        onClick={() => setMenuOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* Mobile drawer */}
+      <div className={`navbar-drawer ${menuOpen ? 'is-open' : ''}`} role="dialog" aria-modal="true" aria-label="Menu">
+        <div className="navbar-drawer-header">
+          <button type="button" className="navbar-drawer-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
+            <X size={24} />
+          </button>
+        </div>
+        <nav className="navbar-drawer-nav">
+          <a href="#about" onClick={() => setMenuOpen(false)}>{t.nav.about}</a>
+          <a href="#projects" onClick={() => setMenuOpen(false)}>{t.nav.projects}</a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>{t.nav.contact}</a>
+        </nav>
+        <div className="navbar-drawer-socials">
+          <a href="https://github.com/dincbileka" target="_blank" rel="noopener noreferrer" aria-label="GitHub" onClick={() => setMenuOpen(false)}>
+            <Github size={20} />
+          </a>
+          <a href="https://linkedin.com/in/dincbileka" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" onClick={() => setMenuOpen(false)}>
+            <Linkedin size={20} />
+          </a>
+          <a href="https://open.spotify.com/user/din%C3%A7bilek" target="_blank" rel="noopener noreferrer" aria-label="Spotify" onClick={() => setMenuOpen(false)}>
+            <SpotifyIcon />
+          </a>
+          <a href="https://instagram.com/dincbileka" target="_blank" rel="noopener noreferrer" aria-label="Instagram" onClick={() => setMenuOpen(false)}>
+            <InstagramIcon />
+          </a>
+          <a href="https://discord.com/users/229007650908536843" target="_blank" rel="noopener noreferrer" aria-label="Discord" onClick={() => setMenuOpen(false)}>
+            <DiscordIcon />
+          </a>
+          <a href="https://x.com/dincbileka" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" onClick={() => setMenuOpen(false)}>
+            <XIcon />
+          </a>
+        </div>
+        <div className="navbar-drawer-actions">
+          <a href="mailto:dincbilek.dev@gmail.com" className="navbar-drawer-mail" onClick={() => setMenuOpen(false)}>
+            <Mail size={20} /> {t.nav.contact}
+          </a>
+        </div>
       </div>
     </motion.nav>
   );

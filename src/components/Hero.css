@@ -8,6 +8,38 @@
     padding-top: 80px;
 }
 
+@media (max-width: 900px) {
+    .hero {
+        padding-top: 64px;
+    }
+}
+
+/* Mobile: content aligned to top, code card visible below */
+@media (max-width: 991px) {
+    .hero {
+        align-items: flex-start;
+        min-height: 100vh;
+        overflow-x: visible;
+    }
+    .hero-container {
+        align-items: flex-start;
+        padding-top: var(--space-xl);
+        padding-bottom: var(--space-2xl);
+        min-width: 0;
+    }
+    .hero-visual {
+        display: block;
+        width: 100%;
+    }
+    .hero-visual .hero-card {
+        max-width: 100%;
+    }
+    .code-body {
+        font-size: 0.75rem;
+        overflow-x: auto;
+    }
+}
+
 /* Vertical grid lines background */
 .hero-bg-lines {
     position: absolute;
@@ -99,6 +131,12 @@
     font-weight: 400;
 }
 
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+}
+
 .hero-title-italic {
     font-style: italic;
     opacity: 0.85;
@@ -180,7 +218,7 @@
 
 /* Code Card — right side */
 .hero-visual {
-    display: none;
+    display: block;
 }
 
 @media (min-width: 992px) {
