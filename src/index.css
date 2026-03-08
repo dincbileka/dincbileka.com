@@ -291,6 +291,7 @@ a:hover {
   padding: var(--space-sm) 0;
   white-space: nowrap;
   z-index: 2;
+  margin-top: var(--space-xl);
 }
 
 .marquee-track {

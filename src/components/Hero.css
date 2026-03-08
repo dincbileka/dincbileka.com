@@ -19,24 +19,36 @@
     .hero {
         align-items: flex-start;
         min-height: 100vh;
-        overflow-x: visible;
+        overflow-x: hidden;
     }
     .hero-container {
         align-items: flex-start;
         padding-top: var(--space-xl);
         padding-bottom: var(--space-2xl);
         min-width: 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     .hero-visual {
         display: block;
         width: 100%;
+        max-width: 100%;
+        min-width: 0;
     }
     .hero-visual .hero-card {
         max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+    .hero-card-content {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        max-width: 100%;
     }
     .code-body {
-        font-size: 0.75rem;
-        overflow-x: auto;
+        font-size: 0.7rem;
+        white-space: pre;
     }
 }
 
