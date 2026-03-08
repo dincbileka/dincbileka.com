@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useLang } from '../context/LanguageContext';
 import './Footer.css';
 
@@ -5,6 +6,14 @@ const Footer = () => {
     const { t } = useLang();
     const f = t.footer;
     const year = new Date().getFullYear();
+    const [views, setViews] = useState(null);
+
+    useEffect(() => {
+        fetch('/api/views')
+            .then(res => res.json())
+            .then(data => setViews(data.views))
+            .catch(() => {});
+    }, []);
 
     return (
         <footer id="contact" className="footer section-padding">
@@ -35,6 +44,11 @@ const Footer = () => {
 
                 <div className="footer-bottom">
                     <p>{f.copyright(year)}</p>
+                    {views !== null && (
+                        <span className="view-counter">
+                            {views.toLocaleString()} {f.views}
+                        </span>
+                    )}
                 </div>
             </div>
         </footer>

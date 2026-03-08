@@ -117,6 +117,13 @@
     opacity: 1;
 }
 
+.view-counter {
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    color: rgba(253, 248, 240, 0.3);
+    letter-spacing: 0.05em;
+}
+
 .heart {
     color: var(--bg-color);
 }
